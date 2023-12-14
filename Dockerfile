@@ -14,7 +14,7 @@ WORKDIR /app
 # Copy the built JAR from the builder stage
 COPY --from=builder /app/target/*.jar app.jar
 # Expose the port the application runs on
-EXPOSE 8085 5005
+EXPOSE $PORT 5005
 # Run the application
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
 
