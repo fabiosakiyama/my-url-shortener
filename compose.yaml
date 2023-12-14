@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    image: my-url-shortener
+    build: .
+    ports:
+      - "8085:8085"
+      - "5005:5005"
+    environment:
+      - APP_DOMAIN=http://localhost:8085
+      - SPRING_PROFILES_ACTIVE=dev
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+
